@@ -1,8 +1,16 @@
-const express = require('express');
-const app = express();
-const port = 8080;
+// fibonacci.js
 
-app.get('/', (req, res) => res.send('Hello World Pop!'));
+function generateFibonacci(n) {
+  const fib = [0, 1];
 
-app.listen(port);
-console.log(`App running on http://localhost:${port}`);
+  for (let i = 2; i < n; i++) {
+    fib[i] = fib[i - 1] + fib[i - 2];
+  }
+
+  return fib.slice(0, n);
+}
+
+// Example: Generate first 10 numbers
+const n = 10;
+console.log(`Fibonacci series up to ${n} terms:`);
+console.log(generateFibonacci(n));
